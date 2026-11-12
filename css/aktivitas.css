@@ -1,0 +1,92 @@
+/* Aktivitas lapangan: bilah sinkron, formulir tandai, ringkasan progres. Dipakai index.html & aktivitas.html. */
+.sync{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:12.5px;line-height:1.45;padding:10px 14px;border-radius:var(--r-sm);background:var(--panel);border:1px solid var(--line)}
+.sync span{flex:1 1 260px;min-width:0}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--k-pantau)}
+.dot.ok{background:var(--ok);box-shadow:0 0 0 3px #d6efe6}
+.dot.warn{background:var(--k-prior);box-shadow:0 0 0 3px var(--gold-soft)}
+.dot.bad{background:var(--bad);box-shadow:0 0 0 3px #fbe1df}
+
+.btn-t{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--fg);font:inherit;font-size:12.5px;font-weight:700;padding:7px 13px;border-radius:9px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.btn-t:hover{border-color:var(--blue);color:var(--blue)}
+.btn-t.pri{background:var(--blue);border-color:var(--blue);color:#fff}
+.btn-t.pri:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn-t.danger{color:var(--bad)}
+.btn-t.danger:hover{border-color:var(--bad);color:var(--bad)}
+.btn-t:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.btn-t svg{width:15px;height:15px}
+
+/* Status: pill & batang progres */
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;white-space:nowrap}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sw)}
+.prog{display:flex;height:8px;border-radius:4px;overflow:hidden;background:#edf1f6}
+.prog i{display:block;height:100%;background:var(--sw)}
+.akt-chips{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.akt-chips div{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:7px 10px;border-radius:9px;background:var(--panel-2);font-size:12px}
+.akt-chips b{font-variant-numeric:tabular-nums;font-size:14px}
+
+/* Daftar aktivitas di panel detail */
+.akt-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.akt-list li{border-top:1px solid #eef2f6}
+.akt-list li:first-child{border-top:0}
+.akt-list button{appearance:none;width:100%;border:0;background:none;font:inherit;color:inherit;text-align:left;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:8px 6px;border-radius:8px}
+.akt-list button:hover{background:var(--panel-2)}
+.akt-list button:focus-visible{outline:2px solid var(--blue)}
+.akt-list .nm{font-weight:600;font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.akt-list small{grid-column:1/-1;color:var(--muted);font-size:11.5px}
+.akt-sec{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line);padding-top:12px}
+.akt-sec .hd{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.akt-sec .hd b{font-size:13px}
+
+/* Halaman Progress akuisisi */
+.ptiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:12px}
+.ptile{display:flex;flex-direction:column;gap:2px;background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--sw);border-radius:var(--r);padding:13px 16px;min-width:0;box-shadow:0 6px 18px -12px rgba(0,48,107,.28)}
+.ptile .lbl{font-size:12px;font-weight:500;color:var(--muted)}
+.ptile b{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1.2;font-variant-numeric:tabular-nums}
+.ptile small{font-size:11.5px;color:var(--muted)}
+.actions-r{display:flex;gap:8px;flex-wrap:wrap}
+.tbl tr.click{cursor:pointer}
+.tbl tr.click:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.tbl td a{color:var(--blue);font-weight:600;text-decoration:none}
+.tbl td a:hover{text-decoration:underline}
+.tbl td small.sub{color:var(--muted)}
+.rank a.rowx{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;padding:7px 8px;border-radius:8px;color:inherit;text-decoration:none}
+.rank a.rowx:hover{background:var(--panel-2)}
+.rank a.rowx:focus-visible{outline:2px solid var(--blue)}
+.rank li.note{padding:8px}
+.content>.sync{margin-bottom:0}
+
+/* Formulir (dialog) */
+.akt-dlg{border:0;border-radius:var(--r);padding:0;width:min(520px,calc(100vw - 24px));max-height:calc(100vh - 24px);box-shadow:0 24px 60px -20px rgba(0,48,107,.5);color:var(--fg);font-family:var(--f-sans)}
+.akt-dlg::backdrop{background:rgba(12,37,68,.45)}
+.akt-form{display:flex;flex-direction:column;gap:12px;padding:18px 20px 20px}
+.akt-h{display:flex;justify-content:space-between;align-items:center}
+.akt-h h2{margin:0;font-size:17px;font-weight:800;color:var(--navy);letter-spacing:-.015em}
+.akt-x{appearance:none;border:0;background:none;font-size:24px;line-height:1;color:var(--muted);cursor:pointer;padding:2px 6px;border-radius:8px}
+.akt-x:hover{background:var(--panel-2);color:var(--fg)}
+.fld{display:flex;flex-direction:column;gap:5px;border:0;margin:0;padding:0;min-width:0}
+.fld>span,.fld legend{font-size:12px;font-weight:600;color:var(--muted);padding:0}
+.fld small{font-weight:500}
+.fld input,.fld select,.fld textarea{font:inherit;font-size:13.5px;padding:9px 11px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--fg);width:100%;min-width:0}
+.fld textarea{resize:vertical}
+.fld input:focus-visible,.fld select:focus-visible,.fld textarea:focus-visible{outline:2px solid var(--blue);outline-offset:0;border-color:var(--blue)}
+.fld2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.akt-st{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.akt-st label{position:relative;cursor:pointer}
+.akt-st input{position:absolute;opacity:0;inset:0}
+.akt-st span{display:flex;align-items:center;gap:8px;padding:9px 11px;border-radius:10px;border:1px solid var(--line);font-size:13px;font-weight:600}
+.akt-st span::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--sw);flex:none}
+.akt-st input:checked+span{border-color:var(--sw);box-shadow:inset 0 0 0 1px var(--sw);background:var(--panel-2)}
+.akt-st input:focus-visible+span{outline:2px solid var(--blue);outline-offset:1px}
+.akt-note{margin:0;font-size:11px;color:var(--muted)}
+.akt-ok{margin:-4px 0 0;font-size:11.5px;color:var(--ok);font-weight:600}
+.fld input[aria-invalid=true]{border-color:var(--bad);box-shadow:inset 0 0 0 1px var(--bad)}
+.sub-no{display:block;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.akt-err{margin:0;font-size:12.5px;font-weight:600;color:var(--bad)}
+.akt-riw{font-size:12px;background:var(--panel-2);border-radius:10px;padding:10px 12px;max-height:160px;overflow:auto}
+.akt-riw ol{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.akt-riw li{display:flex;gap:8px;align-items:flex-start}
+.akt-riw li i{width:8px;height:8px;border-radius:50%;background:var(--sw);margin-top:5px;flex:none}
+.akt-riw small{color:var(--muted)}
+.akt-act{display:flex;gap:8px;align-items:center}
+.akt-act span{flex:1}
+@media (max-width:480px){.fld2,.akt-st{grid-template-columns:minmax(0,1fr)}.akt-form{padding:16px}}
